@@ -12,6 +12,8 @@ namespace eDentalClinicWebAPI.Database
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
-        public byte[] Logo { get; set; }
+
+        public virtual ICollection<User> Users { get; set; }
+        public virtual ICollection<Dentist> Dentists { get; set; }
     }
 }

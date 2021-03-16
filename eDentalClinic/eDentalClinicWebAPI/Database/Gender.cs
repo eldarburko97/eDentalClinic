@@ -9,5 +9,8 @@ namespace eDentalClinicWebAPI.Database
     {
         public int GenderID { get; set; }
         public string Type { get; set; }
+
+       // public virtual ICollection<Client> Clients { get; set; }
+        public virtual ICollection<User> Users { get; set; }
     }
 }

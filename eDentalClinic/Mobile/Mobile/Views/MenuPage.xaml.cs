@@ -21,8 +21,14 @@ namespace Mobile.Views
 
             menuItems = new List<HomeMenuItem>
             {
-                new HomeMenuItem {Id = MenuItemType.Browse, Title="Browse" },
-                new HomeMenuItem {Id = MenuItemType.About, Title="About" }
+                new HomeMenuItem {Id = MenuItemType.Browse, Title="Home" },
+                //new HomeMenuItem {Id = MenuItemType.About, Title="About" },
+                new HomeMenuItem {Id = MenuItemType.YourProfile, Title="Your Profile"},
+                 new HomeMenuItem {Id = MenuItemType.Forum, Title="Forum" },
+                 new HomeMenuItem {Id = MenuItemType.BookingAppointments, Title="Booking appointments" },
+                 new HomeMenuItem {Id = MenuItemType.MyAppointments, Title="My appointments" },
+                 new HomeMenuItem {Id = MenuItemType.Rating, Title="Rate a dentist" },
+                  new HomeMenuItem {Id = MenuItemType.LogOut, Title="Log out" }
             };
 
             ListViewMenu.ItemsSource = menuItems;

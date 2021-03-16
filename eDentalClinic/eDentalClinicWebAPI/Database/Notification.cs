@@ -12,5 +12,7 @@ namespace eDentalClinicWebAPI.Database
         public string Text { get; set; }
         public DateTime NotificationDate { get; set; }
         public int UserID { get; set; }
+
+        public virtual User User { get; set; }
     }
 }

@@ -5,6 +5,7 @@
               Title="{Binding Title}"
              x:Name="BrowseItemsPage">
 
+    
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Add" Clicked="AddItem_Clicked" />
     </ContentPage.ToolbarItems>
@@ -36,6 +37,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+    </StackLayout>
+    
+
+    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+        <Label Text="Welcome to Dental clinic Ćatić" FontSize="Large"></Label>
     </StackLayout>
     
 </ContentPage>

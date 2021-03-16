@@ -1,4 +1,12 @@
-﻿using System;
+﻿using eDentalClinic.WinUI.Appointments;
+using eDentalClinic.WinUI.Branches;
+using eDentalClinic.WinUI.Clients;
+using eDentalClinic.WinUI.Dentists;
+using eDentalClinic.WinUI.Payments;
+using eDentalClinic.WinUI.Reports;
+using eDentalClinic.WinUI.Reviews;
+using eDentalClinic.WinUI.Treatments;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -66,15 +74,17 @@ namespace eDentalClinic.WinUI
         {
         }
 
+        /*
         private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
         {
             toolStrip.Visible = toolBarToolStripMenuItem.Checked;
-        }
+        }*/
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
+        /*
+    private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+    }*/
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -102,6 +112,88 @@ namespace eDentalClinic.WinUI
             {
                 childForm.Close();
             }
+        }
+
+
+        private void AddDentistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddDentist frm = new frmAddDentist();
+            frm.Show();
+        }
+
+        private void DeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDentistsData frm = new frmDentistsData();
+            frm.Show();
+        }
+
+        private void AddBranchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddBranch frm = new frmAddBranch();
+            frm.Show();
+        }
+
+        private void BranchDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBranchesData frm = new frmBranchesData();
+            frm.Show();
+        }
+
+        private void AddTreatmentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddTreatment frm = new frmAddTreatment();
+            frm.Show();
+        }
+
+        private void TreatmentDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTreatmentsData frm = new frmTreatmentsData();
+            frm.Show();
+        }
+
+        private void AppointmentsDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAppointmentsData frm = new frmAppointmentsData();
+            frm.Show();
+        }
+
+        private void ReviewsDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReviewsData frm = new frmReviewsData();
+            frm.Show();
+        }
+
+
+
+        private void ClientsDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmClientsData frm = new frmClientsData();
+            frm.Show();
+        }
+
+        private void PaymentsDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPaymentsData frm = new frmPaymentsData();
+            frm.Show();
+        }
+
+        private void AddPaymentToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddPayment frm = new frmAddPayment();
+            frm.Show();
+        }
+
+        private void NewReportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBestSellingTreatment frm = new frmBestSellingTreatment();
+           // frmTestReport frm = new frmTestReport();
+            frm.Show();
+        }
+
+        private void NewReportToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmBusinessReportDentists frm = new frmBusinessReportDentists();
+            frm.Show();
         }
     }
 }

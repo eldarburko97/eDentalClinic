@@ -32,8 +32,26 @@ namespace Mobile.Views
                     case (int)MenuItemType.Browse:
                         MenuPages.Add(id, new NavigationPage(new ItemsPage()));
                         break;
-                    case (int)MenuItemType.About:
+                  /*  case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
+                        break;*/
+                    case (int)MenuItemType.YourProfile:
+                        MenuPages.Add(id, new NavigationPage(new YourProfilePage()));
+                        break;
+                    case (int)MenuItemType.Forum:
+                        MenuPages.Add(id, new NavigationPage(new ForumPage()));
+                        break;
+                    case (int)MenuItemType.BookingAppointments:
+                        MenuPages.Add(id, new NavigationPage(new DentistPage()));
+                        break;
+                    case (int)MenuItemType.MyAppointments:
+                        MenuPages.Add(id, new NavigationPage(new MyAppointmentsPage()));
+                        break;
+                    case (int)MenuItemType.Rating:
+                        MenuPages.Add(id, new NavigationPage(new DentistRating()));
+                        break;
+                    case (int)MenuItemType.LogOut:
+                        MenuPages.Add(id, new NavigationPage(new LoginPage()));
                         break;
                 }
             }

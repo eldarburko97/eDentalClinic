@@ -4,21 +4,6 @@
              x:Class="Mobile.Views.YourProfilePage">
   <!--Pages can be added as references or inline-->
 
-    <ContentPage Title="Personal data">
-        <StackLayout HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand">
-            <Label Text="First name"></Label>
-            <Label Text="Last name"></Label>
-            <Label Text="Phone"></Label>
-            <Label Text="Birthdate"></Label>
-            <Label Text="Username"></Label>
-        </StackLayout>
-    </ContentPage>
-    <ContentPage Title="Settings">
-        <StackLayout>
-            <Label Text="aaaa"></Label>
-            <Label Text="aaasdasdas"></Label>
-        </StackLayout>
-    </ContentPage>
-  <ContentPage Title="Tab 3" /> 
+    
     
 </TabbedPage>
