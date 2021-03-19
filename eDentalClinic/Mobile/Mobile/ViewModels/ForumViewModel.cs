@@ -34,7 +34,7 @@ namespace Mobile.ViewModels
           
             foreach (var topic in list)
             {
-                var client = await _userService.GetById<Client>(topic.UserID);
+                var client = await _userService.GetById<User>(topic.UserID);
                 topic.Client = client.FirstName + " " + client.LastName; //Client that posted topic
                 request.TopicID = topic.TopicID;
                 var _commentList = await _commentService.GetAll<List<Comment>>(request);

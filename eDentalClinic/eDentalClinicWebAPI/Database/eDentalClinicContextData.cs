@@ -71,6 +71,7 @@ namespace eDentalClinicWebAPI.Database
                 Name = "Jajce"
             });
 
+            
             // Gender
 
             modelBuilder.Entity<Gender>().HasData(new Gender()
@@ -84,7 +85,7 @@ namespace eDentalClinicWebAPI.Database
                 GenderID = 2,
                 Type = "Female"
             });
-
+            
             // Treatment
 
             modelBuilder.Entity<Treatment>().HasData(new Treatment()
@@ -122,6 +123,7 @@ namespace eDentalClinicWebAPI.Database
                 TimeRequired = 1,
                 Image = File.ReadAllBytes("Images/treatment1.jpg")
             });
+            
 
             modelBuilder.Entity<Treatment>().HasData(new Treatment()
             {
@@ -129,7 +131,7 @@ namespace eDentalClinicWebAPI.Database
                 Name = "Sinus lift",
                 Price = 60,
                 TimeRequired = 1,
-                Image = File.ReadAllBytes("Images/treatment4.jpg")
+                 Image = File.ReadAllBytes("Images/treatment4.jpg")
             });
 
             modelBuilder.Entity<Treatment>().HasData(new Treatment()
@@ -147,7 +149,7 @@ namespace eDentalClinicWebAPI.Database
                 Name = "Fiksna ortodontsa terapija",
                 Price = 1500,
                 TimeRequired = 2,
-                Image = File.ReadAllBytes("Images/treatmetn5.png")
+                 Image = File.ReadAllBytes("Images/treatmetn5.png")
             });
 
             
@@ -171,7 +173,7 @@ namespace eDentalClinicWebAPI.Database
             });
 
             // Branch
-
+            
             modelBuilder.Entity<Branch>().HasData(new Branch()
             {
                 BranchID = 1,
@@ -280,6 +282,7 @@ namespace eDentalClinicWebAPI.Database
             });
 
             // Dentist
+            
 
             modelBuilder.Entity<Dentist>().HasData(new Dentist()
             {
@@ -362,7 +365,7 @@ namespace eDentalClinicWebAPI.Database
                 GenderID = 1,
                 FirstName = "Mobile1",
                 LastName = "Client1",
-                Username = "Mobile1",
+                Username = "client1",
                 Phone = "062456982",
                 Email = "mobile1@mail.com",
                 Address = "Sultan Ahmedova bb",
@@ -381,7 +384,7 @@ namespace eDentalClinicWebAPI.Database
                 GenderID = 2,
                 FirstName = "Mobile2",
                 LastName = "Client2",
-                Username = "Mobile2",
+                Username = "client2",
                 Phone = "062123756",
                 Email = "mobile2@mail.com",
                 Address = "Nugle 2 4/b",
@@ -400,7 +403,7 @@ namespace eDentalClinicWebAPI.Database
                 GenderID = 1,
                 FirstName = "Mobile3",
                 LastName = "Client3",
-                Username = "Mobile3",
+                Username = "client3",
                 Phone = "062567234",
                 Email = "mobile3@mail.com",
                 Address = "Kulina Bana bb",
@@ -421,7 +424,7 @@ namespace eDentalClinicWebAPI.Database
                 GenderID = 1,
                 FirstName = "User",
                 LastName = "Desktop",
-                Username = "Desktop",
+                Username = "desktop",
                 Phone = "062654763",
                 Email = "desktop@mail.com",
                 Address = "Nugle 2 4/b",
@@ -521,6 +524,28 @@ namespace eDentalClinicWebAPI.Database
                 RatingStatus = true,
             });
 
+            modelBuilder.Entity<Appointment>().HasData(new Appointment()
+            {
+                AppointmentID = 6,
+                UserID = 1,
+                DentistID = 2,
+                TreatmentID = 1,
+                StartDate = new DateTime(2021, 03, 06, 12, 0, 0),
+                EndDate = new DateTime(2021, 03, 06, 13, 0, 0),
+                RatingStatus = true,
+            });
+
+            modelBuilder.Entity<Appointment>().HasData(new Appointment()
+            {
+                AppointmentID = 7,
+                UserID = 2,
+                DentistID = 1,
+                TreatmentID = 1,
+                StartDate = new DateTime(2021, 03, 08, 13, 0, 0),
+                EndDate = new DateTime(2021, 03, 08, 14, 0, 0),
+                RatingStatus = true,
+            });
+
             // Rating
 
             modelBuilder.Entity<Rating>().HasData(new Rating()
@@ -529,7 +554,8 @@ namespace eDentalClinicWebAPI.Database
                 UserID = 1,
                 DentistID = 1,
                 DentistRating = 9,
-                RatingDate = new DateTime(2021, 02, 08)
+                RatingDate = new DateTime(2021, 02, 08),
+                Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
             });
 
             modelBuilder.Entity<Rating>().HasData(new Rating()
@@ -538,7 +564,8 @@ namespace eDentalClinicWebAPI.Database
                 UserID = 2,
                 DentistID = 2,
                 DentistRating = 10,
-                RatingDate = new DateTime(2021, 02, 08)
+                RatingDate = new DateTime(2021, 02, 08),
+                Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
             });
 
             modelBuilder.Entity<Rating>().HasData(new Rating()
@@ -547,7 +574,8 @@ namespace eDentalClinicWebAPI.Database
                 UserID = 3,
                 DentistID = 3,
                 DentistRating = 10,
-                RatingDate = new DateTime(2021, 02, 08)
+                RatingDate = new DateTime(2021, 02, 08),
+                Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
             });
 
             modelBuilder.Entity<Rating>().HasData(new Rating()
@@ -556,7 +584,8 @@ namespace eDentalClinicWebAPI.Database
                 UserID = 1,
                 DentistID = 1,
                 DentistRating = 8,
-                RatingDate = new DateTime(2021, 02, 15)
+                RatingDate = new DateTime(2021, 02, 15),
+                Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
             });
 
             modelBuilder.Entity<Rating>().HasData(new Rating()
@@ -565,7 +594,127 @@ namespace eDentalClinicWebAPI.Database
                 UserID = 2,
                 DentistID = 2,
                 DentistRating = 9,
-                RatingDate = new DateTime(2021, 02, 17)
+                RatingDate = new DateTime(2021, 02, 17),
+                Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+            });
+
+            modelBuilder.Entity<Rating>().HasData(new Rating()
+            {
+                RatingID = 6,
+                UserID = 1,
+                DentistID = 2,
+                DentistRating = 7,
+                RatingDate = new DateTime(2021, 03, 06),
+                Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+            });
+
+            modelBuilder.Entity<Rating>().HasData(new Rating()
+            {
+                RatingID = 7,
+                UserID = 2,
+                DentistID = 1,
+                DentistRating = 8,
+                RatingDate = new DateTime(2021, 03, 08),
+                Comment = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor"
+            });
+
+            // Topic
+
+            modelBuilder.Entity<Topic>().HasData(new Topic()
+            {
+                TopicID = 1,
+                UserID = 1,
+                Subject = "Test",
+                Description = "Test",
+                Text = "Test",
+                Date = new DateTime(2021, 03, 08),
+            });
+
+            // Comment
+
+            modelBuilder.Entity<Comment>().HasData(new Comment()
+            {
+                CommentID = 1,
+                UserID = 2,
+                TopicID = 1,
+                Text = "Test",
+                Date = new DateTime(2021, 03, 08),
+            });
+
+            // Payment
+
+            modelBuilder.Entity<Payment>().HasData(new Payment()
+            {
+                PaymentID = 1,
+                UserID = 1,
+                TreatmentID = 1,
+                Amount = 20,
+                Date = new DateTime(2021, 02, 08),
+            });
+
+            modelBuilder.Entity<Payment>().HasData(new Payment()
+            {
+                PaymentID = 2,
+                UserID = 2,
+                TreatmentID = 1,
+                Amount = 20,
+                Date = new DateTime(2021, 02, 08),
+            });
+
+            modelBuilder.Entity<Payment>().HasData(new Payment()
+            {
+                PaymentID = 3,
+                UserID = 3,
+                TreatmentID = 1,
+                Amount = 20,
+                Date = new DateTime(2021, 02, 08),
+            });
+
+            modelBuilder.Entity<Payment>().HasData(new Payment()
+            {
+                PaymentID = 4,
+                UserID = 1,
+                TreatmentID = 3,
+                Amount = 30,
+                Date = new DateTime(2021, 02, 15),
+            });
+
+            modelBuilder.Entity<Payment>().HasData(new Payment()
+            {
+                PaymentID = 5,
+                UserID = 2,
+                TreatmentID = 6,
+                Amount = 40,
+                Date = new DateTime(2021, 02, 17),
+            });
+
+            modelBuilder.Entity<Payment>().HasData(new Payment()
+            {
+                PaymentID = 6,
+                UserID = 1,
+                TreatmentID = 1,
+                Amount = 20,
+                Date = new DateTime(2021, 03, 06),
+            });
+
+            modelBuilder.Entity<Payment>().HasData(new Payment()
+            {
+                PaymentID = 7,
+                UserID = 2,
+                TreatmentID = 1,
+                Amount = 20,
+                Date = new DateTime(2021, 03, 08),
+            });
+
+            // Notification
+
+            modelBuilder.Entity<Notification>().HasData(new Notification()
+            {
+                NotificationID = 1,
+                Title = "Test",
+                Text = "Test",
+                NotificationDate = new DateTime(2021, 03, 08),
+                UserID = 4,
             });
         }
     }

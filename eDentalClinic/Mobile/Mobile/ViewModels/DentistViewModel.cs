@@ -15,7 +15,6 @@ namespace Mobile.ViewModels
         private readonly APIService _dentistService = new APIService("Dentists");
         public DentistViewModel()
         {
-            // InitCommand = new Command(async () => await Init());
             SearchDentist = new Command(async () => await Load());
         }
 
@@ -70,7 +69,7 @@ namespace Mobile.ViewModels
 
             if(DentistList.Count == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Warning", "No results found for this filter!", "Try again");
+                await Application.Current.MainPage.DisplayAlert("Warning", "No results found for this filter!", "OK");
             }
         }
     }

@@ -30,15 +30,15 @@
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.Column="0" WidthRequest="280" HeightRequest="280" Source="{Binding Image,Converter={StaticResource imgConv}}"></Image>
-                                    <Label Grid.Column="1" FontSize="Medium">
+                                    <Label Grid.Column="1" FontSize="Medium" VerticalOptions="Center">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="Name: "/>
+                                                <Span Text="Name: " FontAttributes="Bold" FontSize="Medium"/>
                                                 <Span Text="{Binding Name}"></Span>
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
 
-                                                <Span Text="Price: "/>
+                                                <Span Text="Price: " FontAttributes="Bold" FontSize="Medium"/>
                                                 <Span Text="{Binding Price}" ></Span>
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
                                                 <Span Text="{x:Static x:Environment.NewLine}" />

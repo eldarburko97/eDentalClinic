@@ -37,14 +37,14 @@ namespace eDentalClinicWebAPI.Services
             return null;
         }
 
-        public eDentalClinic.Model.Client GetById(int userId)
+        public eDentalClinic.Model.User GetById(int userId)
         {
             var entity = _context.Users.Include(i => i.City).Include(i => i.Gender).FirstOrDefault(f => f.UserID == userId);
-            return _mapper.Map<eDentalClinic.Model.Client>(entity);
+            return _mapper.Map<eDentalClinic.Model.User>(entity);
         }
 
         [Authorize]
-        public List<eDentalClinic.Model.Client> GetAll(UserSearchRequest search)
+        public List<eDentalClinic.Model.User> GetAll(UserSearchRequest search)
         {
             var query = _context.Users.Include("UserRoles.Role").Include(i => i.Gender).Include(i => i.City).AsQueryable();
 
@@ -62,26 +62,14 @@ namespace eDentalClinicWebAPI.Services
             {
                 query = query.Where(x => x.LastName == search.LastName);
             }
-            var list = new List<eDentalClinic.Model.Client>();
-            var result = query.ToList();
-            foreach (var user in result)
-            {
-                foreach (var role in user.UserRoles)
-                {
-                    if(role.Role.Name == "Client")
-                    {
-                        list.Add(_mapper.Map<eDentalClinic.Model.Client>(user));
-                    }
-                }
-            }
-            return list;
+            return _mapper.Map<List<eDentalClinic.Model.User>>(query.ToList());            
         }
 
         public eDentalClinic.Model.User Insert(UserInsertRequest request)
         {
             if (request.Password != request.ConfirmPassword)
             {
-                throw new UserException("Password i potvrda se ne slažu");
+                throw new UserException("Password and password confirm do not match!");
             }
             var entity = _mapper.Map<Database.User>(request);
             entity.PasswordSalt = HashGenerator.GenerateSalt();
@@ -92,11 +80,11 @@ namespace eDentalClinicWebAPI.Services
             return _mapper.Map<eDentalClinic.Model.User>(entity);
         }
 
-        public eDentalClinic.Model.Client Update(int id, UserInsertRequest request)
+        public eDentalClinic.Model.User Update(int id, UserInsertRequest request)
         {
             if(request.Password != request.ConfirmPassword)
             {
-                throw new UserException("Password i potvrda se ne slažu !");
+                throw new UserException("Password and password confirm do not match!");
             }
             var entity = _context.Users.Find(id);
             if (!string.IsNullOrEmpty(request.Password))
@@ -107,22 +95,7 @@ namespace eDentalClinicWebAPI.Services
             _context.Users.Attach(entity);
             _context.Users.Update(entity);
             _context.SaveChanges();
-            return _mapper.Map<eDentalClinic.Model.Client>(entity);
-        }
-
-        public eDentalClinic.Model.User Register(UserInsertRequest request)
-        {          
-            if (request.Password != request.ConfirmPassword)
-            {
-                throw new Exception("Password i potvrda se ne slažu");
-            }
-            var entity = _mapper.Map<Database.User>(request);
-            entity.PasswordSalt = HashGenerator.GenerateSalt();
-            entity.PasswordHash = HashGenerator.GenerateHash(entity.PasswordSalt, request.Password);
-            _context.Users.Add(entity);
-            _context.SaveChanges();
-
             return _mapper.Map<eDentalClinic.Model.User>(entity);
-        }
+        }        
     }
 }

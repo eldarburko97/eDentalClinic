@@ -49,12 +49,11 @@ namespace eDentalClinicWebAPI
             services.AddAuthentication("BasicAuthentication")
               .AddScheme<AuthenticationSchemeOptions, BasicAuthenticationHandler>("BasicAuthentication", null);
 
-            // services.AddScoped<IClientService, ClientService>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IDentalClinicService, DentalClinicService>();
             services.AddScoped<IRecommendationService, RecommendationService>();
             services.AddScoped<ICRUDService<eDentalClinic.Model.Branch, BranchSearchRequest, BranchInsertRequest, BranchInsertRequest>, BranchService>();
-            services.AddScoped<ICRUDService<eDentalClinic.Model.Dentist, DentistSearchRequest, DentistInsertRequest, DentistInsertRequest>, DentistService>();
-            services.AddScoped<ICRUDService<eDentalClinic.Model.DentistBranch, DentistBranchSearchRequest, DentistBranchInsertRequest, DentistBranchInsertRequest>, DentistBranchService>();
+            services.AddScoped<ICRUDService<eDentalClinic.Model.Dentist, DentistSearchRequest, DentistInsertRequest, DentistInsertRequest>, DentistService>();          
             services.AddScoped<ICRUDService<eDentalClinic.Model.Treatment, TreatmentSearchRequest, TreatmentInsertRequest, TreatmentInsertRequest>, TreatmentService>();
             services.AddScoped<ICRUDService<eDentalClinic.Model.BranchTreatment, BranchTreatmentSearchRequest, BranchTreatmentInsertRequest, BranchTreatmentInsertRequest>, BranchTreatmentService>();
             services.AddScoped<ICRUDService<eDentalClinic.Model.City, CitySearchRequest, CityInsertRequest, CityInsertRequest>, CityService>();
@@ -65,6 +64,7 @@ namespace eDentalClinicWebAPI
             services.AddScoped<ICRUDService<eDentalClinic.Model.Appointment, AppointmentSearchRequest, AppointmentInsertRequest, AppointmentInsertRequest>, AppointmentService>();
             services.AddScoped<ICRUDService<eDentalClinic.Model.Rating, RatingSearchRequest, RatingInsertRequest, RatingInsertRequest>, RatingService>();
             services.AddScoped<ICRUDService<eDentalClinic.Model.Payment, PaymentSearchRequest, PaymentInsertRequest, PaymentInsertRequest>, PaymentService>();
+            services.AddScoped<ICRUDService<eDentalClinic.Model.Notification, NotificationSearchRequest, NotificationInsertRequest, NotificationInsertRequest>, NotificationService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -45,7 +45,7 @@ namespace eDentalClinic.WinUI.Payments
 
         private async Task LoadClients()
         {
-            var list = await _userService.GetAll<List<Client>>(null);
+            var list = await _userService.GetAll<List<User>>(null);
             List<frmAddPaymentVM> clients = new List<frmAddPaymentVM>();
             foreach (var item in list)
             {

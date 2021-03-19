@@ -37,11 +37,12 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+            <Label Text="Welcome to Dental clinic Ćatić" FontSize="Large"></Label>
+        </StackLayout>
     </StackLayout>
     
 
-    <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
-        <Label Text="Welcome to Dental clinic Ćatić" FontSize="Large"></Label>
-    </StackLayout>
+   
     
 </ContentPage>

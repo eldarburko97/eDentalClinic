@@ -32,14 +32,7 @@ namespace eDentalClinicWebAPI.Controllers
         {
             return _service.GetById(id);
         }
-        /*
-        [HttpGet("{username}")]
-        public T GetByUsername(string username)
-        {
-            return _service.GetByUsername(username);
-        }*/
-
-
+        
         [HttpPost]
         [Route("")]
         public IActionResult Insert([FromBody]TInsert request)

@@ -12,5 +12,7 @@ namespace eDentalClinic.Model
         public DateTime Date { get; set; }
         public string Client { get; set; } //Firstname + lastname
         public byte[] Image { get; set; }
+
+        public  Topic Topic { get; set; }
     }
 }

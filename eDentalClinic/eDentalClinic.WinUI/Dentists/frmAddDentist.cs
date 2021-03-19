@@ -22,7 +22,6 @@ namespace eDentalClinic.WinUI.Dentists
         private int? _id = null;
         private readonly APIService _branchService = new APIService("Branches");
         private readonly APIService _dentistService = new APIService("Dentists");
-        private readonly APIService _dentistBranchService = new APIService("DentistBranches");
         DentistInsertRequest request = new DentistInsertRequest();
         public frmAddDentist(int? id = null)
         {
@@ -143,15 +142,11 @@ namespace eDentalClinic.WinUI.Dentists
                 request.BirthDate = dtpBirthdate.Value.Date;
                 request.Active = checkBoxActive.Checked;
                 request.Description = txtDescription.Text;
-                request.DentalClinicID = 1; // Odnosi se na ovu stomatološku ordinaciju
-                //var idBranch = cmbBranch.SelectedValue;
+                request.DentalClinicID = 1; 
+                
                 var branch = cmbBranch.SelectedItem as Branch;
                 request.BranchID = branch.BranchID;
-                /*
-                if (int.TryParse(idBranch.ToString(), out int branchID))
-                {
-                    request.BranchID = branchID;
-                }*/
+                
                 using (MemoryStream stream = new MemoryStream())
                 {
                     userImage.Image.Save(stream, ImageFormat.Png);
@@ -165,7 +160,6 @@ namespace eDentalClinic.WinUI.Dentists
                 else
                 {
                     var result = await _dentistService.Insert<Model.Dentist>(request);
-                    DentistBranchInsertRequest dentistBranchInsertRequest = new DentistBranchInsertRequest();
                     MessageBox.Show("New dentist successfully added!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 this.Close();
@@ -182,12 +176,7 @@ namespace eDentalClinic.WinUI.Dentists
             else
             {
                 errorProvider.SetError(txtFirstName, null);
-            }
-          /*  else if (!Regex.IsMatch(txtFirstName.Text, "^[a-zA-Z ]*$"))
-            {
-                e.Cancel = true;
-                errorProvider.SetError(txtFirstName, Messages.string_err);
-            }*/
+            }          
         }
 
         private void TxtLastName_Validating(object sender, CancelEventArgs e)
@@ -200,12 +189,7 @@ namespace eDentalClinic.WinUI.Dentists
             else
             {
                 errorProvider.SetError(txtLastName, null);
-            }
-            /*  else if (!Regex.IsMatch(txtLastName.Text, "^[a-zA-Z ]*$"))
-              {
-                  e.Cancel = true;
-                  errorProvider.SetError(txtLastName, Messages.string_err);
-              }*/
+            }            
         }
 
         private void TxtPhone_Validating(object sender, CancelEventArgs e)

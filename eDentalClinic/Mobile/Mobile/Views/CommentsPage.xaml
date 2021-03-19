@@ -15,7 +15,7 @@
     <ContentPage.Content>
         <StackLayout Padding="10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
             <StackLayout BackgroundColor="DodgerBlue">
-                <Label Margin="5" Text="Ping" HorizontalTextAlignment="Center"></Label>
+                <Label Margin="5" Text="{Binding Topic}" HorizontalTextAlignment="Center"></Label>
             </StackLayout>
             <ListView ItemsSource="{Binding CommentList}"  SeparatorVisibility="None" HasUnevenRows="True">
                 <ListView.ItemTemplate>

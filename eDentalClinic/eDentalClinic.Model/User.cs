@@ -19,6 +19,8 @@ namespace eDentalClinic.Model
         public DateTime BirthDate { get; set; }
         public byte[] Image { get; set; }
 
-         public ICollection<UserRole> UserRoles { get; set; }
+        public City City { get; set; }
+        public Gender Gender { get; set; }
+        public ICollection<UserRole> UserRoles { get; set; }
     }
 }

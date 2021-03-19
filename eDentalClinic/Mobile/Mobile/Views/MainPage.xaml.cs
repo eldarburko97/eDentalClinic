@@ -20,7 +20,13 @@ namespace Mobile.Views
 
             MasterBehavior = MasterBehavior.Popover;
 
-            MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+            //MenuPages.Add((int)MenuItemType.Browse, (NavigationPage)Detail);
+
+
+            //Ovo je novo
+           // MenuPages.Add((int)MenuItemType.Home, (NavigationPage)Detail);
+            this.Detail = new NavigationPage( new HomePage());
+           
         }
 
         public async Task NavigateFromMenu(int id)
@@ -29,9 +35,12 @@ namespace Mobile.Views
             {
                 switch (id)
                 {
-                    case (int)MenuItemType.Browse:
-                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                    case (int)MenuItemType.Home:
+                        MenuPages.Add(id, new NavigationPage(new HomePage()));
                         break;
+                  /*  case (int)MenuItemType.Browse:
+                        MenuPages.Add(id, new NavigationPage(new ItemsPage()));
+                        break;*/
                   /*  case (int)MenuItemType.About:
                         MenuPages.Add(id, new NavigationPage(new AboutPage()));
                         break;*/

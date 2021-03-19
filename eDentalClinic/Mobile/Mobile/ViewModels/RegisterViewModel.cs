@@ -21,7 +21,6 @@ namespace Mobile.ViewModels
         private readonly APIService _genderService = new APIService("Genders");
         private readonly APIService _userRoleService = new APIService("UserRoles");
 
-        // ClientInsertRequest insert_request = new ClientInsertRequest();
         UserInsertRequest insert_request = new UserInsertRequest();
         UserRoleInsertRequest insert_request2 = new UserRoleInsertRequest();
         public RegisterViewModel()
@@ -175,11 +174,10 @@ namespace Mobile.ViewModels
                 }
 
                 var result = await _userService.Insert<User>(insert_request);
-               // var result = await _userService.Register<User>(insert_request);
                 insert_request2.UserID = result.UserID;
                 insert_request2.RoleID = 2;
                 await _userRoleService.Insert<UserRole>(insert_request2);
-                await Application.Current.MainPage.DisplayAlert("You have successfully registered!", "", "OK");
+                await Application.Current.MainPage.DisplayAlert("Success", "You have successfully registered!", "OK");
                 await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
             }
 

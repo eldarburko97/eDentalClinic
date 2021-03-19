@@ -33,15 +33,15 @@ namespace eDentalClinic.WinUI
                     return;
                 }
 
-                var user = _apiService.GetAll<List<Client>>(new UserSearchRequest { Username = txtUsername.Text });
+                var user = await _apiService.GetAll<List<User>>(new UserSearchRequest { Username = txtUsername.Text });
 
                 frmMain frm = new frmMain();
                 frm.Show();
                 this.Hide();
             }
-            catch (Exception ex)
+            catch (Exception )
             {
-                MessageBox.Show(ex.Message, "Authentication", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               // MessageBox.Show(ex.Message, "Authentication", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }

@@ -26,48 +26,62 @@
     <Compile Remove="Migrations\20210218064116_NewMigration2.Designer.cs" />
     <Compile Remove="Migrations\20210218065154_NewMigration3.cs" />
     <Compile Remove="Migrations\20210218065154_NewMigration3.Designer.cs" />
+    <Compile Remove="Migrations\20210218070105_InitDB.cs" />
+    <Compile Remove="Migrations\20210218070105_InitDB.Designer.cs" />
+    <Compile Remove="Migrations\20210218100754_Seedtest.cs" />
+    <Compile Remove="Migrations\20210218100754_Seedtest.Designer.cs" />
+    <Compile Remove="Migrations\20210218135610_Seed2.cs" />
+    <Compile Remove="Migrations\20210218135610_Seed2.Designer.cs" />
+    <Compile Remove="Migrations\20210222113324_NewMigration.cs" />
+    <Compile Remove="Migrations\20210222113324_NewMigration.Designer.cs" />
+    <Compile Remove="Migrations\20210222123346_NewMigration2.cs" />
+    <Compile Remove="Migrations\20210222123346_NewMigration2.Designer.cs" />
+    <Compile Remove="Migrations\20210225153715_NewMigration3.cs" />
+    <Compile Remove="Migrations\20210225153715_NewMigration3.Designer.cs" />
+    <Compile Remove="Migrations\20210226083007_NewMigration4.cs" />
+    <Compile Remove="Migrations\20210226083007_NewMigration4.Designer.cs" />
+    <Compile Remove="Migrations\20210228092651_NewMigration5.cs" />
+    <Compile Remove="Migrations\20210228092651_NewMigration5.Designer.cs" />
+    <Compile Remove="Migrations\20210301083915_NewMigration6.cs" />
+    <Compile Remove="Migrations\20210301083915_NewMigration6.Designer.cs" />
+    <Compile Remove="Migrations\20210302125415_NewMigration7.cs" />
+    <Compile Remove="Migrations\20210302125415_NewMigration7.Designer.cs" />
+    <Compile Remove="Migrations\20210302130554_NewMigration8.cs" />
+    <Compile Remove="Migrations\20210302130554_NewMigration8.Designer.cs" />
+    <Compile Remove="Migrations\20210302134452_NewMigration9.cs" />
+    <Compile Remove="Migrations\20210302134452_NewMigration9.Designer.cs" />
+    <Compile Remove="Migrations\20210305170707_NewMigration10.cs" />
+    <Compile Remove="Migrations\20210305170707_NewMigration10.Designer.cs" />
+    <Compile Remove="Migrations\20210310132552_NewMigration11.cs" />
+    <Compile Remove="Migrations\20210310132552_NewMigration11.Designer.cs" />
+    <Compile Remove="Migrations\20210311215411_NewMigration12.cs" />
+    <Compile Remove="Migrations\20210311215411_NewMigration12.Designer.cs" />
+    <Compile Remove="Migrations\20210314230307_Init.cs" />
+    <Compile Remove="Migrations\20210314230307_Init.Designer.cs" />
     <Compile Remove="Migrations\20210315225509_DataSeed.cs" />
     <Compile Remove="Migrations\20210315225509_DataSeed.Designer.cs" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Images\DentalClinic.jpg" />
-    <None Remove="Images\Dentist.jpg" />
-    <None Remove="Images\Dentist2.jpg" />
-    <None Remove="Images\Dentist6.jpg" />
-    <None Remove="Images\Dentist7.jpg" />
-    <None Remove="Images\treatment1.jpg" />
-    <None Remove="Images\treatment10.png" />
-    <None Remove="Images\treatment11.png" />
-    <None Remove="Images\treatment2.jpeg" />
-    <None Remove="Images\treatment3.png" />
-    <None Remove="Images\treatment4.jpg" />
-    <None Remove="Images\treatment6.png" />
-    <None Remove="Images\treatment7.png" />
-    <None Remove="Images\treatment8.png" />
-    <None Remove="Images\treatment9.png" />
-    <None Remove="Images\treatmetn5.png" />
-    <None Remove="Images\userDefault.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <EmbeddedResource Include="Images\DentalClinic.jpg" />
-    <EmbeddedResource Include="Images\Dentist.jpg" />
-    <EmbeddedResource Include="Images\Dentist2.jpg" />
-    <EmbeddedResource Include="Images\Dentist6.jpg" />
-    <EmbeddedResource Include="Images\Dentist7.jpg" />
-    <EmbeddedResource Include="Images\treatment1.jpg" />
-    <EmbeddedResource Include="Images\treatment10.png" />
-    <EmbeddedResource Include="Images\treatment11.png" />
-    <EmbeddedResource Include="Images\treatment2.jpeg" />
-    <EmbeddedResource Include="Images\treatment3.png" />
-    <EmbeddedResource Include="Images\treatment4.jpg" />
-    <EmbeddedResource Include="Images\treatment6.png" />
-    <EmbeddedResource Include="Images\treatment7.png" />
-    <EmbeddedResource Include="Images\treatment8.png" />
-    <EmbeddedResource Include="Images\treatment9.png" />
-    <EmbeddedResource Include="Images\treatmetn5.png" />
-    <EmbeddedResource Include="Images\userDefault.png" />
+    <Compile Remove="Migrations\20210315231250_DataSeed.cs" />
+    <Compile Remove="Migrations\20210315231250_DataSeed.Designer.cs" />
+    <Compile Remove="Migrations\20210316090622_Init.cs" />
+    <Compile Remove="Migrations\20210316090622_Init.Designer.cs" />
+    <Compile Remove="Migrations\20210316095136_SeedData.cs" />
+    <Compile Remove="Migrations\20210316095136_SeedData.Designer.cs" />
+    <Compile Remove="Migrations\20210316100528_DataSeed1.cs" />
+    <Compile Remove="Migrations\20210316100528_DataSeed1.Designer.cs" />
+    <Compile Remove="Migrations\20210316111221_DataSeed1.cs" />
+    <Compile Remove="Migrations\20210316111221_DataSeed1.Designer.cs" />
+    <Compile Remove="Migrations\20210316142338_DataSeed1.cs" />
+    <Compile Remove="Migrations\20210316142338_DataSeed1.Designer.cs" />
+    <Compile Remove="Migrations\20210316142451_DataSeed2.cs" />
+    <Compile Remove="Migrations\20210316142451_DataSeed2.Designer.cs" />
+    <Compile Remove="Migrations\20210316142528_DataSeed3.cs" />
+    <Compile Remove="Migrations\20210316142528_DataSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20210316143344_DataSeed3.cs" />
+    <Compile Remove="Migrations\20210316143344_DataSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20210316144152_DataSeed3.cs" />
+    <Compile Remove="Migrations\20210316144152_DataSeed3.Designer.cs" />
+    <Compile Remove="Migrations\20210317151519_DataSeed.cs" />
+    <Compile Remove="Migrations\20210317151519_DataSeed.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>

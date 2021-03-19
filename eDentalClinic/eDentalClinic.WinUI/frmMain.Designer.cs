@@ -50,11 +50,14 @@
             this.addPaymentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bestSellingTreatmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dentistsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notificationsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addNotificationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.dentistsReportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.newReportToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.notificationsDataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.SuspendLayout();
@@ -71,11 +74,12 @@
             this.clientToolStripMenuItem,
             this.paymentsToolStripMenuItem,
             this.bestSellingTreatmentToolStripMenuItem,
-            this.dentistsReportToolStripMenuItem});
+            this.dentistsReportToolStripMenuItem,
+            this.notificationsToolStripMenuItem});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(8, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(976, 28);
+            this.menuStrip.Size = new System.Drawing.Size(1181, 28);
             this.menuStrip.TabIndex = 0;
             this.menuStrip.Text = "MenuStrip";
             // 
@@ -231,24 +235,6 @@
             this.newReportToolStripMenuItem.Text = "New report";
             this.newReportToolStripMenuItem.Click += new System.EventHandler(this.NewReportToolStripMenuItem_Click);
             // 
-            // statusStrip
-            // 
-            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripStatusLabel});
-            this.statusStrip.Location = new System.Drawing.Point(0, 533);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
-            this.statusStrip.Size = new System.Drawing.Size(976, 25);
-            this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
-            // 
-            // toolStripStatusLabel
-            // 
-            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
-            this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
-            this.toolStripStatusLabel.Text = "Status";
-            // 
             // dentistsReportToolStripMenuItem
             // 
             this.dentistsReportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -260,15 +246,56 @@
             // newReportToolStripMenuItem1
             // 
             this.newReportToolStripMenuItem1.Name = "newReportToolStripMenuItem1";
-            this.newReportToolStripMenuItem1.Size = new System.Drawing.Size(216, 26);
+            this.newReportToolStripMenuItem1.Size = new System.Drawing.Size(159, 26);
             this.newReportToolStripMenuItem1.Text = "New report";
             this.newReportToolStripMenuItem1.Click += new System.EventHandler(this.NewReportToolStripMenuItem1_Click);
+            // 
+            // notificationsToolStripMenuItem
+            // 
+            this.notificationsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addNotificationToolStripMenuItem,
+            this.notificationsDataToolStripMenuItem});
+            this.notificationsToolStripMenuItem.Name = "notificationsToolStripMenuItem";
+            this.notificationsToolStripMenuItem.Size = new System.Drawing.Size(106, 24);
+            this.notificationsToolStripMenuItem.Text = "Notifications";
+            // 
+            // addNotificationToolStripMenuItem
+            // 
+            this.addNotificationToolStripMenuItem.Name = "addNotificationToolStripMenuItem";
+            this.addNotificationToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.addNotificationToolStripMenuItem.Text = "Add notification";
+            this.addNotificationToolStripMenuItem.Click += new System.EventHandler(this.AddNotificationToolStripMenuItem_Click);
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 533);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Padding = new System.Windows.Forms.Padding(1, 0, 19, 0);
+            this.statusStrip.Size = new System.Drawing.Size(1181, 25);
+            this.statusStrip.TabIndex = 2;
+            this.statusStrip.Text = "StatusStrip";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(49, 20);
+            this.toolStripStatusLabel.Text = "Status";
+            // 
+            // notificationsDataToolStripMenuItem
+            // 
+            this.notificationsDataToolStripMenuItem.Name = "notificationsDataToolStripMenuItem";
+            this.notificationsDataToolStripMenuItem.Size = new System.Drawing.Size(216, 26);
+            this.notificationsDataToolStripMenuItem.Text = "Notifications data";
+            this.notificationsDataToolStripMenuItem.Click += new System.EventHandler(this.NotificationsDataToolStripMenuItem_Click);
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(976, 558);
+            this.ClientSize = new System.Drawing.Size(1181, 558);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.menuStrip);
             this.IsMdiContainer = true;
@@ -313,6 +340,9 @@
         private System.Windows.Forms.ToolStripMenuItem newReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dentistsReportToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newReportToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem notificationsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addNotificationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem notificationsDataToolStripMenuItem;
     }
 }
 

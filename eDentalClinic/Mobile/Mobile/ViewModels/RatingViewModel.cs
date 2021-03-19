@@ -14,7 +14,6 @@ namespace Mobile.ViewModels
     {
         private readonly APIService _ratingService = new APIService("Ratings");
         private readonly APIService _userService = new APIService("Users");
-        private readonly APIService _dentistService = new APIService("Dentists");
         private readonly APIService _appointmentService = new APIService("Appointments");
         public RatingViewModel()
         {
@@ -73,10 +72,8 @@ namespace Mobile.ViewModels
 
         public async Task Init()
         {
-            var list = await _userService.GetAll<List<Client>>(new UserSearchRequest { Username = APIService.Username });
+            var list = await _userService.GetAll<List<User>>(new UserSearchRequest { Username = APIService.Username });
             var client = list[0];
-            // FirstName = client.FirstName;
-            //LastName = client.LastName;
 
             dentist = Appointment.Dentist.FirstName + " " + Appointment.Dentist.LastName;
             TreatmentName = Appointment.Treatment.Name;
@@ -87,7 +84,7 @@ namespace Mobile.ViewModels
         {
             if (Grade <= 0 || Grade > 10)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "You have to add mark in range 1 - 10!", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "You have to add rating in range 1 - 10!", "OK");
                 return;
             }
 
@@ -99,10 +96,6 @@ namespace Mobile.ViewModels
 
             try
             {
-                // var list = await _userService.GetAll<List<Client>>(new UserSearchRequest { Username = APIService.Username });
-                //var client = list[0];
-
-                //var dentist = await _dentistService.GetById<Dentist>(Appointment.DentistID);
                 bool answer = await Application.Current.MainPage.DisplayAlert("Alert", "Would you like to add rating?", "Yes", "No");
                 if (answer)
                 {
@@ -115,7 +108,7 @@ namespace Mobile.ViewModels
                         RatingDate = RatingDate
                     };
                     await _ratingService.Insert<Rating>(request);
-                    await Application.Current.MainPage.DisplayAlert("Success", "You have sucessfully added grade for a dentist!", "OK");
+                    await Application.Current.MainPage.DisplayAlert("Success", "You have sucessfully added rating for a dentist!", "OK");
 
                     var appointment = await _appointmentService.GetById<Appointment>(Appointment.AppointmentID);
                     AppointmentInsertRequest update_request = new AppointmentInsertRequest
@@ -126,7 +119,6 @@ namespace Mobile.ViewModels
                         StartDate = Appointment.StartDate,
                         EndDate = Appointment.EndDate,
                         RatingStatus = true
-                       // CommentStatus = Appointment.CommentStatus
                     };
                     await _appointmentService.Update<Appointment>(Appointment.AppointmentID, update_request);
                     Application.Current.MainPage = new MainPage();
@@ -134,7 +126,7 @@ namespace Mobile.ViewModels
             }
             catch (Exception)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Somethning went wrong", "OK");
+                await Application.Current.MainPage.DisplayAlert("Error", "Something went wrong", "OK");
             }
         }
     }

@@ -73,7 +73,7 @@ namespace Mobile.ViewModels
             {
                 Username = APIService.Username
             };
-            var user = await _service.GetAll<List<eDentalClinic.Model.Client>>(request);
+            var user = await _service.GetAll<List<eDentalClinic.Model.User>>(request);
             foreach (var item in user)
             {
                 Username = item.Username;

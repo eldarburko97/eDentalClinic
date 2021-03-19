@@ -54,17 +54,9 @@
             <Entry Placeholder="Confirm password"
                    IsPassword="True"
                    Text="{Binding PasswordConfirm}"/>
-            <StackLayout 
-                Orientation="Horizontal"
-                HorizontalOptions="Center">
-
-                <Button BackgroundColor="DodgerBlue" WidthRequest="90" Text="Register" Command="{Binding RegisterCommand}"></Button>
-
-                <Button BackgroundColor="DodgerBlue"
-                    WidthRequest="90"
-                    Margin="10,0,0,0"
-                    Text="Go to Login"
-               Clicked="Button_Clicked"/>
+            <StackLayout Orientation="Horizontal" Spacing="2">
+                <Button HorizontalOptions="CenterAndExpand" BackgroundColor="DodgerBlue" Text="Register" TextColor="White" Command="{Binding RegisterCommand}"></Button>
+                <Button HorizontalOptions="CenterAndExpand" BackgroundColor="DarkOrange"   Text="Back to login" TextColor="White" Clicked="Button_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

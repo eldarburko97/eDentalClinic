@@ -71,10 +71,9 @@ namespace eDentalClinicWebAPI.Services
         }
 
 
-        //2 do 4
-        //1 do 3
+        
 
-        public override eDentalClinic.Model.Appointment Insert(AppointmentInsertRequest model)     // od 3 do 5          2 do 4  2 do 6  
+        public override eDentalClinic.Model.Appointment Insert(AppointmentInsertRequest model)       
         {
             var entity = _context.Appointments.Where(x => x.DentistID == model.DentistID).ToList();
 

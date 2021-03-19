@@ -22,7 +22,18 @@ namespace eDentalClinic.WinUI.Clients
 
         private async void FrmClientsData_Load(object sender, EventArgs e)
         {
-            var result = await _userService.GetAll<List<Client>>(null);
+            var list = await _userService.GetAll<List<User>>(null);
+            List<User> result = new List<User>();
+            foreach (var item in list)
+            {
+                foreach (var role in item.UserRoles)
+                {
+                    if (role.Role.Name == "Client")
+                    {
+                        result.Add(item);
+                    }
+                }
+            }
             dgvClients.AutoGenerateColumns = false;
             dgvClients.DataSource = result;
         }
@@ -34,7 +45,18 @@ namespace eDentalClinic.WinUI.Clients
                 FirstName = txtFirstName.Text,
                 LastName = txtLastName.Text
             };
-            var result = await _userService.GetAll<List<Client>>(request);
+            var list = await _userService.GetAll<List<User>>(request);
+            List<User> result = new List<User>();
+            foreach (var item in list)
+            {
+                foreach (var role in item.UserRoles)
+                {
+                    if (role.Role.Name == "Client")
+                    {
+                        result.Add(item);
+                    }
+                }
+            }
             dgvClients.AutoGenerateColumns = false;
             dgvClients.DataSource = result;
             if(result.Count == 0)

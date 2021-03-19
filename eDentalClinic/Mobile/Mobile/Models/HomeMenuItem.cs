@@ -6,8 +6,9 @@ namespace Mobile.Models
 {
     public enum MenuItemType
     {
-        Browse,
-        About,
+        Home,
+       // Browse,
+      //  About,
         YourProfile,
         Forum,
         BookingAppointments,

@@ -16,7 +16,6 @@ namespace Mobile.ViewModels
         private readonly APIService _treatmentService = new APIService("Treatments");
         public TreatmentViewModel()
         {
-            // InitCommand = new Command(async () => await Initialization());
             SearchTreatment = new Command(async () => await Load());
         }
         public ICommand InitCommand { get; set; }
@@ -59,12 +58,6 @@ namespace Mobile.ViewModels
             {
                 TreatmentList.Clear();
             }
-            /* TreatmentSearchRequest request = new TreatmentSearchRequest
-             {
-                 Name = TreatmentName
-             };
-
-             var list = await _treatmentService.GetAll<List<Treatment>>(request);*/
 
             foreach (var item in dentist.Branch.BranchTreatments)
             {
@@ -75,16 +68,9 @@ namespace Mobile.ViewModels
                 }
             }
 
-           
-
-           /* foreach (var item in list)
-            {
-                TreatmentList.Add(item);
-            }*/
-
             if (TreatmentList.Count == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Warning", "No results found for this filter!", "Try again");
+                await Application.Current.MainPage.DisplayAlert("Warning", "No results found for this filter!", "OK");
             }
         }
     }

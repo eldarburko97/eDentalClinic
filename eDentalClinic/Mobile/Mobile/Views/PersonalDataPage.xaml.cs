@@ -49,7 +49,7 @@ namespace Mobile.Views
                 var byteArray = ms.ToArray();
                 // resultImage.Source = ImageSource.FromStream(() => stream);
                 UserSearchRequest searchRequest = new UserSearchRequest { Username = APIService.Username };
-                var users = await _service.GetAll<List<Client>>(searchRequest);
+                var users = await _service.GetAll<List<User>>(searchRequest);
                 var user = users[0];
                 UserInsertRequest userInsertRequest = new UserInsertRequest
                 {
@@ -60,7 +60,6 @@ namespace Mobile.Views
                     Email = user.Email,
                     Address = user.Address,
                     BirthDate = user.BirthDate.Date,
-                   // JMBG = user.JMBG,
                     Image = byteArray,
                     DentalClinicID = user.DentalClinicID,
                    CityID = user.CityID,

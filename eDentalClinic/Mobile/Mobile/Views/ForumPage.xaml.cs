@@ -21,7 +21,6 @@ namespace Mobile.Views
             BindingContext = model = new ForumViewModel();
             this.Title = "Forum";
             NavigationPage.SetHasNavigationBar(this, true);
-
         }
 
         protected async override void OnAppearing()

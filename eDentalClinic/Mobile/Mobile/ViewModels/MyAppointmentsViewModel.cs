@@ -17,12 +17,10 @@ namespace Mobile.ViewModels
         private readonly APIService _userService = new APIService("Users");
         public MyAppointmentsViewModel()
         {
-            //InitCommand = new Command(async () => await Init());
             SearchAppointmentsCommand = new Command(async () => await SearchAppointments());
             CancelCommand = new Command(async (appointment) => { await Cancel(appointment); });
         }
 
-        // public ICommand InitCommand { get; set; }
         public ICommand SearchAppointmentsCommand { get; set; }
         public ICommand CancelCommand { get; set; }
 
@@ -52,7 +50,7 @@ namespace Mobile.ViewModels
         public async Task Init()
         {
             UserSearchRequest request = new UserSearchRequest { Username = APIService.Username };
-            var list = await _userService.GetAll<List<Client>>(request);
+            var list = await _userService.GetAll<List<User>>(request);
             var client = list[0];
 
             if (AppointmentList.Count > 0)
@@ -83,7 +81,7 @@ namespace Mobile.ViewModels
             }
 
             UserSearchRequest request = new UserSearchRequest { Username = APIService.Username };
-            var list = await _userService.GetAll<List<Client>>(request);
+            var list = await _userService.GetAll<List<User>>(request);
             var client = list[0];
 
             if (AppointmentList.Count > 0)
@@ -93,6 +91,7 @@ namespace Mobile.ViewModels
 
             AppointmentSearchRequest request2 = new AppointmentSearchRequest
             {
+                UserID = client.UserID,
                 TreatmentName = TreatmentName,
                 StartDate = StartDate.Date,
                 EndDate = EndDate.Date
@@ -107,7 +106,7 @@ namespace Mobile.ViewModels
 
             if (AppointmentList.Count == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Warning", "There are no results for this search", "Try again");
+                await Application.Current.MainPage.DisplayAlert("Warning", "There are no results for this search", "OK");
             }
 
         }
@@ -124,15 +123,13 @@ namespace Mobile.ViewModels
                     return;
                 }
 
-                if(item.StartDate.Date < DateTime.Now.Date)
+                if (item.StartDate.Date < DateTime.Now.Date)
                 {
                     await Application.Current.MainPage.DisplayAlert("Error", "You cannot cancel already completed appointments !", "OK");
                     return;
                 }
                 await _appointmentService.Delete<Appointment>(item.AppointmentID);
                 await Application.Current.MainPage.DisplayAlert("Success", "You have successfully cancelled your request", "OK");
-                // Application.Current.MainPage = new MyAppointmentsPage();
-                // await Application.Current.MainPage.Navigation.PushModalAsync(new MyAppointmentsPage());
                 Application.Current.MainPage = new MainPage();
             }
             catch (Exception)

@@ -2,6 +2,7 @@
 using eDentalClinic.WinUI.Branches;
 using eDentalClinic.WinUI.Clients;
 using eDentalClinic.WinUI.Dentists;
+using eDentalClinic.WinUI.Notifications;
 using eDentalClinic.WinUI.Payments;
 using eDentalClinic.WinUI.Reports;
 using eDentalClinic.WinUI.Reviews;
@@ -186,13 +187,24 @@ namespace eDentalClinic.WinUI
         private void NewReportToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmBestSellingTreatment frm = new frmBestSellingTreatment();
-           // frmTestReport frm = new frmTestReport();
             frm.Show();
         }
 
         private void NewReportToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmBusinessReportDentists frm = new frmBusinessReportDentists();
+            frm.Show();
+        }
+
+        private void AddNotificationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNotification frm = new frmAddNotification();
+            frm.Show();
+        }
+
+        private void NotificationsDataToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNotificationsData frm = new frmNotificationsData();
             frm.Show();
         }
     }

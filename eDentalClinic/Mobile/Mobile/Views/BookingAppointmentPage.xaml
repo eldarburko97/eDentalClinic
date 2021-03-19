@@ -46,8 +46,6 @@
 
                 <TimePicker Time="{Binding Time}" Format="hh:mm"></TimePicker>
 
-                <!--  <Label Text="End date"></Label>
-            <DatePicker Date="{Binding EndDate}"></DatePicker>-->
 
                 <Button Margin="0,30,0,0" Command="{Binding BookingCommand}" Text="Book an appointment" Font="17" BackgroundColor="DodgerBlue" TextColor="White"></Button>
 
@@ -57,58 +55,54 @@
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
-                                <StackLayout Padding="10" Orientation="Horizontal">
-                                    <StackLayout>
-                                        <Image WidthRequest="200" HeightRequest="200" Source="{Binding Image,Converter={StaticResource imgConv}}"></Image>
+                                <StackLayout>
+                                <Grid Padding="10" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" ColumnSpacing="0">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition></ColumnDefinition>
+                                        <ColumnDefinition></ColumnDefinition>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout Grid.Column="0">
+                                        <Image  WidthRequest="200" HeightRequest="150" Source="{Binding Image,Converter={StaticResource imgConv}}"></Image>
                                     </StackLayout>
-                                    <StackLayout Orientation="Vertical">
 
-                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
-                                            <Label Text="First name : "
-												Style="{DynamicResource LargeLabel}" />
-                                            <Label Text="{Binding FirstName} " 												
-												LineBreakMode="NoWrap" 
-												Style="{DynamicResource ListItemTextStyle}" 
-												FontSize="15" />
-                                        </StackLayout>
+                                    <StackLayout Grid.Column="1" Padding="20">
+                                        <Label FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="First name: "/>
+                                                    <Span Text="{Binding FirstName}"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
-                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
-                                            <Label Text="Last name : "
-												Style="{DynamicResource LargeLabel}" />
-                                            <Label Text="{Binding LastName} " 
-												LineBreakMode="NoWrap" 
-												Style="{DynamicResource ListItemTextStyle}" 
-												FontSize="15" />
-                                        </StackLayout>
+                                        <Label FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Last name: "/>
+                                                    <Span Text="{Binding LastName}"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
-                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
-                                            <Label Text="Title : "
-												Style="{DynamicResource LargeLabel}" />
-                                            <Label Text="{Binding Branch.Title} " 
-												LineBreakMode="NoWrap" 
-												Style="{DynamicResource ListItemTextStyle}" 
-												FontSize="15" />
-                                        </StackLayout>
+                                        <Label FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Title: "/>
+                                                    <Span Text="{Binding Branch.Title}"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
 
-                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
-                                            <Label Text="Birth date : "
-												Style="{DynamicResource LargeLabel}" />
-                                            <Label Text="{Binding BirthDate, StringFormat='{0:MMMM dd, yyyy}'} " 
-												LineBreakMode="NoWrap" 
-												Style="{DynamicResource ListItemTextStyle}" 
-												FontSize="15" />
-                                        </StackLayout>
-
-                                        <StackLayout Grid.Row="1" Orientation="Horizontal" Spacing="6">
-                                            <Label Text="Description :"
-												Style="{DynamicResource LargeLabel}" />
-                                            <Label Text="{Binding Description} " 
-												LineBreakMode="NoWrap" 
-												Style="{DynamicResource ListItemTextStyle}" 
-												FontSize="15" />
-                                        </StackLayout>
-                                        
+                                        <Label FontAttributes="Bold">
+                                            <Label.FormattedText>
+                                                <FormattedString>
+                                                    <Span Text="Birth date: "/>
+                                                    <Span Text="{Binding BirthDate, StringFormat='{0:MMMM dd, yyyy}'}"></Span>
+                                                </FormattedString>
+                                            </Label.FormattedText>
+                                        </Label>
                                     </StackLayout>
+                                </Grid>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>

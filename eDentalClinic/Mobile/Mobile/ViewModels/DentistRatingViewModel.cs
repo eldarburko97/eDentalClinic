@@ -26,7 +26,7 @@ namespace Mobile.ViewModels
             {
                 AppointmentList.Clear();
             }
-            var list = await _userService.GetAll<List<Client>>(new UserSearchRequest { Username = APIService.Username });
+            var list = await _userService.GetAll<List<User>>(new UserSearchRequest { Username = APIService.Username });
             var client = list[0];
 
             AppointmentSearchRequest request = new AppointmentSearchRequest
@@ -46,7 +46,7 @@ namespace Mobile.ViewModels
 
             if(AppointmentList.Count == 0)
             {
-                await Application.Current.MainPage.DisplayAlert("Warning", "The list is empty. You can leave a rating on the booked appointment after the appointment expires or you have not booked yet. Please, try again later.", "OK");
+                await Application.Current.MainPage.DisplayAlert("Warning", "The list is empty. You can leave a rating on the booked appointment after the appointment expires or you have not booked yet.", "OK");
             }
         }
     }

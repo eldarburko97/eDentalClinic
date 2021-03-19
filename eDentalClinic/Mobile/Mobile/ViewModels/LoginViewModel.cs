@@ -43,9 +43,7 @@ namespace Mobile.ViewModels
             try
             {
                 await _service.GetAll<dynamic>(null);
-                Application.Current.MainPage = new MainPage();
-                // await Application.Current.MainPage.Navigation.PushAsync(new NavigationPage(new MainPage()));
-                //Application.Current.MainPage = new NavigationPage(new MainPage());
+                Application.Current.MainPage = new MainPage();                
             }
             catch (Exception)
             {

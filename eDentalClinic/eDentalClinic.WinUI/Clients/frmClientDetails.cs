@@ -26,7 +26,7 @@ namespace eDentalClinic.WinUI.Clients
         {
             if (_id.HasValue)
             {
-                var client = await _userService.GetById<Client>(_id);
+                var client = await _userService.GetById<User>(_id);
                 txtFirstName.Text = client.FirstName;
                 txtLastName.Text = client.LastName;
                 txtPhone.Text = client.Phone;

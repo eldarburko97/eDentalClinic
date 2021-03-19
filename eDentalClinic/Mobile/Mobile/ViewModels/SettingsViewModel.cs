@@ -82,7 +82,7 @@ namespace Mobile.ViewModels
             {
                 Username = APIService.Username
             };
-            var list = await _service.GetAll<List<eDentalClinic.Model.Client>>(request);
+            var list = await _service.GetAll<List<eDentalClinic.Model.User>>(request);
             foreach (var user in list)
             {
                 Phone = user.Phone;
@@ -109,7 +109,7 @@ namespace Mobile.ViewModels
                 {
                     Username = APIService.Username
                 };
-                var list = await _service.GetAll<List<eDentalClinic.Model.Client>>(request);
+                var list = await _service.GetAll<List<eDentalClinic.Model.User>>(request);
                 var id = list[0].UserID;
                 var user = list[0];
                 UserInsertRequest request2 = new UserInsertRequest
@@ -129,7 +129,7 @@ namespace Mobile.ViewModels
                     Image = user.Image
                 };
 
-                var returned_user = await _service.Update<eDentalClinic.Model.Client>(id, request2);
+                var returned_user = await _service.Update<eDentalClinic.Model.User>(id, request2);
                 await Application.Current.MainPage.DisplayAlert("Success", "You have successfully changed your password !", "OK");
                 await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
             }
@@ -162,7 +162,7 @@ namespace Mobile.ViewModels
                 {
                     Username = APIService.Username
                 };
-                var list = await _service.GetAll<List<eDentalClinic.Model.Client>>(request);
+                var list = await _service.GetAll<List<eDentalClinic.Model.User>>(request);
                 var id = list[0].UserID;
                 var user = list[0];
                 UserInsertRequest request2 = new UserInsertRequest
@@ -180,7 +180,7 @@ namespace Mobile.ViewModels
                     Image = user.Image
                 };
 
-                var returned_user = await _service.Update<eDentalClinic.Model.Client>(id, request2);
+                var returned_user = await _service.Update<eDentalClinic.Model.User>(id, request2);
                 await Application.Current.MainPage.DisplayAlert("Success", "You have successfully updated your information !", "OK");
                 await Application.Current.MainPage.Navigation.PushModalAsync(new LoginPage());
             }

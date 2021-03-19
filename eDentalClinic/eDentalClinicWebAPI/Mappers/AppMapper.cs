@@ -15,17 +15,13 @@ namespace eDentalClinicWebAPI.Mappers
             CreateMap<Database.Dentist, DentistInsertRequest>().ReverseMap();
             CreateMap<Database.Branch, eDentalClinic.Model.Branch>().ReverseMap();
             CreateMap<Database.Branch, BranchInsertRequest>().ReverseMap();
-            CreateMap<Database.DentistBranch, eDentalClinic.Model.DentistBranch>().ReverseMap();
-            CreateMap<Database.DentistBranch, DentistBranchInsertRequest>().ReverseMap();
             CreateMap<Database.Treatment, eDentalClinic.Model.Treatment>().ReverseMap();
             CreateMap<Database.Treatment, TreatmentInsertRequest>().ReverseMap();
             CreateMap<Database.BranchTreatment, eDentalClinic.Model.BranchTreatment>().ReverseMap();
             CreateMap<Database.BranchTreatment, BranchTreatmentInsertRequest>().ReverseMap();
-            //CreateMap<Database.Client, eDentalClinic.Model.Client>().ReverseMap();
-            //CreateMap<Database.Client, ClientInsertRequest>().ReverseMap();
             CreateMap<Database.Gender, eDentalClinic.Model.Gender>().ReverseMap();
             CreateMap<Database.Gender, GenderInsertRequest>().ReverseMap();
-            CreateMap<Database.User, eDentalClinic.Model.Client>().ReverseMap();
+            CreateMap<Database.User, eDentalClinic.Model.User>().ReverseMap();
             CreateMap<Database.User, UserInsertRequest>().ReverseMap();
             CreateMap<Database.Topic, TopicInsertRequest>().ReverseMap();
             CreateMap<Database.Topic, eDentalClinic.Model.Topic>().ReverseMap();
@@ -39,6 +35,8 @@ namespace eDentalClinicWebAPI.Mappers
             CreateMap<Database.Rating, RatingInsertRequest>().ReverseMap();
             CreateMap<Database.Payment, eDentalClinic.Model.Payment>().ReverseMap();
             CreateMap<Database.Payment, PaymentInsertRequest>().ReverseMap();
+            CreateMap<Database.Notification, eDentalClinic.Model.Notification>().ReverseMap();
+            CreateMap<Database.Notification, NotificationInsertRequest>().ReverseMap();
         }
     }
 }

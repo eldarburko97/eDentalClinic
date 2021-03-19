@@ -30,7 +30,7 @@ namespace Mobile.ViewModels
                 Total = 0;
             }
 
-            var clients = await _userService.GetAll<List<Client>>(new UserSearchRequest { Username = APIService.Username});
+            var clients = await _userService.GetAll<List<User>>(new UserSearchRequest { Username = APIService.Username});
             var client = clients[0];
 
             var payments = await _paymentService.GetAll<List<Payment>>(new PaymentSearchRequest { UserID = client.UserID});

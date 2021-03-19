@@ -24,33 +24,33 @@
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Margin="0,20,0,0" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
+                            <StackLayout Padding="10,0,10,10" HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand">
                                 <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition></ColumnDefinition>
                                         <ColumnDefinition></ColumnDefinition>
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.Column="0" WidthRequest="280" HeightRequest="280" Source="{Binding Image,Converter={StaticResource imgConv}}"></Image>
-                                    <Label Grid.Column="1" FontSize="Medium">
+                                    <Label  Grid.Column="1" HorizontalOptions="FillAndExpand" VerticalOptions="Center">
                                         <Label.FormattedText>
                                             <FormattedString>
-                                                <Span Text="First name: "/>
+                                                <Span Text="First name: " FontAttributes="Bold"/>
                                                 <Span Text="{Binding FirstName}"></Span>
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
 
-                                                <Span Text="Last name: "/>
+                                                <Span Text="Last name: " FontAttributes="Bold"/>
                                                 <Span Text="{Binding LastName}" ></Span>
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
 
-                                                <Span Text="Title: "/>
+                                                <Span Text="Title: " FontAttributes="Bold"/>
                                                 <Span Text="{Binding Branch.Title}" ></Span>
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
-                                              
-                                                <Span Text="Birth date: "/>
+
+                                                <Span Text="Birth date: " FontAttributes="Bold"/>
                                                 <Span Text="{Binding BirthDate, StringFormat='{0:MMMM dd, yyyy}'}" ></Span>
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
 
-                                                <Span Text="Description: "/>
+                                                <Span Text="Description: " FontAttributes="Bold"/>
                                                 <Span Text="{Binding Description}" ></Span>
                                                 <Span Text="{x:Static x:Environment.NewLine}" />
                                                 

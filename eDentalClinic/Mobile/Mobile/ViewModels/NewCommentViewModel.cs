@@ -45,7 +45,7 @@ namespace Mobile.ViewModels
                     return;
                 }
                 _searchRequest.Username = APIService.Username;
-                var list = await _userService.GetAll<List<eDentalClinic.Model.Client>>(_searchRequest);
+                var list = await _userService.GetAll<List<eDentalClinic.Model.User>>(_searchRequest);
                 var Client = list[0];
                 _commentRequest.UserID = Client.UserID;
                 _commentRequest.TopicID = Id;

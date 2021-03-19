@@ -70,7 +70,7 @@ namespace Mobile.ViewModels
                 request.Date = Date;
 
                 request2.Username = APIService.Username;
-                var list = await _userService.GetAll<List<eDentalClinic.Model.Client>>(request2);
+                var list = await _userService.GetAll<List<eDentalClinic.Model.User>>(request2);
                 var Client = list[0];
                 request.UserID = Client.UserID;
                 var topic = await _service.Insert<eDentalClinic.Model.Topic>(request);

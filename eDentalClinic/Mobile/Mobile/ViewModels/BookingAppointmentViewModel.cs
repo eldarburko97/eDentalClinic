@@ -18,7 +18,6 @@ namespace Mobile.ViewModels
         private readonly APIService _appointmentService = new APIService("Appointments");
         private readonly APIService _ratingService = new APIService("Ratings");
         private readonly APIService _recommendationService = new APIService("Recommendations");
-        //private readonly APIService _bookingService = new APIService("Bookings");
         public BookingAppointmentViewModel()
         {
             BookingCommand = new Command(async () => await BookAnAppointment());
@@ -103,23 +102,19 @@ namespace Mobile.ViewModels
             set { SetProperty(ref _rating, value); }
         }
 
-        //public Treatment Treatment { get; set; }
+        
         public DentistTreatmentDTO DentistTreatment { get; set; }
 
         public ObservableCollection<Dentist> RecommendedDentistList { get; set; } = new ObservableCollection<Dentist>();
 
         public async Task Init()
         {
-            var list = await _userService.GetAll<List<Client>>(APIService.Username);
+            var list = await _userService.GetAll<List<User>>(new UserSearchRequest { Username = APIService.Username});
             var client = list[0];
             var dentist = await _dentistService.GetById<Dentist>(DentistTreatment.DentistID);
 
             var ratings = await _ratingService.GetAll<List<Rating>>(null);
-           /* var recommendations = await _recommendationService.GetAll<List<eDentalClinic.Model.Dentist>>(new RecommendationSearchRequest
-            {
-                DentistID = dentist.DentistID
-            });*/
-
+           
             FirstName = client.FirstName;
             LastName = client.LastName;
             Phone = client.Phone;
@@ -153,7 +148,7 @@ namespace Mobile.ViewModels
                 AverageRating = "The dentist has no ratings yet";
                 return;
             }
-            AverageRating = (averageRating / i).ToString();
+            AverageRating = Math.Round((decimal)averageRating / i,1).ToString();        
         }
 
         async Task BookAnAppointment()
@@ -166,7 +161,7 @@ namespace Mobile.ViewModels
                     return;
                 }
 
-                var list = await _userService.GetAll<List<Client>>(APIService.Username);
+                var list = await _userService.GetAll<List<User>>(new UserSearchRequest { Username = APIService.Username});
                 var client = list[0];
 
                 var appointments = await _appointmentService.GetAll<List<Appointment>>(new AppointmentSearchRequest { UserID = client.UserID });
@@ -178,16 +173,12 @@ namespace Mobile.ViewModels
                         return;
                     }
                 }
-                // var time = Time.ToString(@"hh\:mm");
-
-                // var timespan = TimeSpan.Parse(time);
+                              
                 var hours = Time.Hours;
                 var minutes = Time.Minutes;
-                // var timespan = new TimeSpan(hours, minutes, 0);
-
+                
                 FullStartDate = StartDate.Date.Add(new TimeSpan(hours, minutes, 0));
-                //TimeSpan ts = new TimeSpan(TimeSpan.Parse(time));
-                //  FullStartDate = StartDate.Add(TimeSpan.Parse(time));
+                
                 AppointmentInsertRequest request = new AppointmentInsertRequest
                 {
                     UserID = client.UserID,
@@ -196,46 +187,12 @@ namespace Mobile.ViewModels
                     StartDate = FullStartDate,
                     EndDate = FullStartDate.AddHours(DentistTreatment.TimeRequired),
                     RatingStatus = false
-                    //CommentStatus = false
+                    
                 };
-
-                //AppointmentSearchRequest search_request = new AppointmentSearchRequest { DentistID = DentistTreatment.DentistID };
-                //var appointments = await _appointmentService.GetAll<List<Appointment>>(search_request);
-
-                //foreach (var appointment in appointments) // od 2 do 5 je rezervisano
-                //{
-                //    if(request.StartDate == appointment.StartDate)
-                //    {
-                //        await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment.", "Try again");
-                //        return;
-                //    }
-                //    if (request.StartDate < appointment.StartDate && request.EndDate > appointment.StartDate)
-                //    {
-                //        await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment.", "Try again");
-                //        return;
-                //    }
-                //    if (request.StartDate > appointment.StartDate && request.EndDate > appointment.StartDate)
-                //    {
-                //        await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment.", "Try again");
-                //        return;
-                //    }
-                /*
-                if (request.StartDate < appointment.StartDate && request.EndDate > appointment.StartDate ) // Prevencija rezervisanja termina koji se nalazi unutar već nekog termina
-                {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment.", "Try again");
-                    return;
-                }
-                if (request.StartDate > appointment.StartDate && request.StartDate < appointment.EndDate) // Prevencija rezervisanja termina koji se nalazi unutar već nekog termina
-                {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment.", "Try again");
-                    return;
-                }*/
-
-                // }
+                
                 bool answer = await Application.Current.MainPage.DisplayAlert("Alert", "Would you like to add payment?", "Yes", "No");
                 if (answer)
                 {
-                    // await Application.Current.MainPage.Navigation.PushAsync(new PaymentPage());
                     await Application.Current.MainPage.Navigation.PushModalAsync(new PaymentPage(new DentistTreatmentAppointmentDTO {
                         UserID = client.UserID,
                         DentistID = DentistTreatment.DentistID,
@@ -251,7 +208,7 @@ namespace Mobile.ViewModels
 
                     if (result == null)
                     {
-                        await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment", "Try again");
+                        await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment", "OK");
                         return;
                     }
                     else

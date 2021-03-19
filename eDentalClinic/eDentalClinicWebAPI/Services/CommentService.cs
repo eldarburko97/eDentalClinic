@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using eDentalClinic.Model.Requests;
 using eDentalClinicWebAPI.Database;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace eDentalClinicWebAPI.Services
 
         public override List<eDentalClinic.Model.Comment> GetAll(CommentSearchRequest searchRequest)
         {
-            var query = _context.Comments.AsQueryable();
+            var query = _context.Comments.Include(i => i.Topic).AsQueryable();
 
             if (searchRequest.TopicID != null && searchRequest.TopicID != 0)
             {

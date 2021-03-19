@@ -47,12 +47,6 @@ namespace eDentalClinicWebAPI.Database
             modelBuilder.Entity<Dentist>().HasOne<DentalClinic>(e => e.DentalClinic).WithMany(d => d.Dentists).HasForeignKey(e => e.DentalClinicID);
             modelBuilder.Entity<Dentist>().HasOne<Branch>(e => e.Branch).WithMany(d => d.Dentists).HasForeignKey(e => e.BranchID);
 
-            // modelBuilder.Entity<Dentist>().HasOne<Branch>(e => e.Title).WithMany(d => d.Dentists).HasForeignKey(e => e.TitleID);
-            // modelBuilder.Entity<User>().HasOne<Title>(e => e.Title).WithMany(d => d.Dentists).HasForeignKey(e => e.TitleID);
-            // modelBuilder.Entity<DentistBranch>().HasOne<Dentist>(e => e.Dentist).WithMany(p => p.DentistBranches);
-            // modelBuilder.Entity<DentistBranch>().HasOne<Branch>(e => e.Branch).WithMany(p => p.DentistBranches);
-
-            // modelBuilder.Entity<UserRole>().HasKey(e => new { e.UserID, e.RoleID });
             modelBuilder.Entity<UserRole>()
             .HasOne<User>(e => e.User)
             .WithMany(p => p.UserRoles);
@@ -90,43 +84,7 @@ namespace eDentalClinicWebAPI.Database
             modelBuilder.Entity<Payment>().HasOne<User>(e => e.User).WithMany(d => d.Payments).HasForeignKey(e => e.UserID);
             modelBuilder.Entity<Payment>().HasOne<Treatment>(e => e.Treatment).WithMany(d => d.Payments).HasForeignKey(e => e.TreatmentID);
 
-            /*
-            User u = new User
-            {
-                UserID = 1,
-                FirstName = "William",
-                LastName = "Shakespeare",
-                Username = "William",
-                Phone = "062440876",
-                Email = "william@mail.com",
-                Address = "Lamele",
-                BirthDate = new DateTime(1997, 7, 15),
-                CityID = 1,
-                GenderID = 1,
-                DentalClinicID = 1
-            };
-            u.PasswordSalt = HashGenerator.GenerateSalt();
-            u.PasswordHash = HashGenerator.GenerateHash(u.PasswordSalt, "Test123");
-
-            User u2 = new User
-            {
-                UserID = 3,
-                FirstName = "Eldar",
-                LastName = "Burko",
-                Username = "Eldo",
-                Phone = "062440876",
-                Email = "eldar@mail.com",
-                Address = "Lamele",
-                BirthDate = new DateTime(1997, 7, 15),
-                Image = File.ReadAllBytes("Images/userDefault.png"),
-                CityID = 1,
-                GenderID = 1,
-                DentalClinicID = 1
-            };
-            u2.PasswordSalt = HashGenerator.GenerateSalt();
-            u2.PasswordHash = HashGenerator.GenerateHash(u2.PasswordSalt, "Test123");
-
-            modelBuilder.Entity<User>().HasData(u2);*/
+            
 
             OnModelCreatingPartial(modelBuilder);
         }

@@ -26,14 +26,13 @@ namespace eDentalClinicWebAPI.Controllers
 
         [HttpGet]
         [Authorize]
-        public ActionResult<List<Client>> GetAll([FromQuery]UserSearchRequest search)
+        public ActionResult<List<User>> GetAll([FromQuery]UserSearchRequest search)
         {
             return _service.GetAll(search);
         }
 
         [HttpGet("{userId}")]
-        // [Authorize]
-        public ActionResult<Client> GetById(int userId)
+        public ActionResult<User> GetById(int userId)
         {
             return _service.GetById(userId);
         }
@@ -52,7 +51,7 @@ namespace eDentalClinicWebAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public ActionResult<Client> Update(int id, [FromBody]UserInsertRequest request)
+        public ActionResult<User> Update(int id, [FromBody]UserInsertRequest request)
         {
             try
             {
@@ -62,13 +61,6 @@ namespace eDentalClinicWebAPI.Controllers
             {
                 return BadRequest();
             }
-        }
-
-        [HttpPost]
-        [Route("register")]
-        public ActionResult<User> Register([FromBody]UserInsertRequest request)
-        {
-            return _service.Register(request);
-        }
+        }       
     }
 }

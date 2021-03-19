@@ -15,7 +15,7 @@
             <Entry Text="{Binding Password}" IsPassword="True"></Entry>
             <StackLayout VerticalOptions="EndAndExpand" Orientation="Horizontal" Spacing="2" Padding="2">
                 <Button  Command="{Binding LoginCommand}" Text="Login" HorizontalOptions="CenterAndExpand" BackgroundColor="DodgerBlue" TextColor="White"/>
-                <Button Text="Register" HorizontalOptions="CenterAndExpand" BackgroundColor="DodgerBlue" TextColor="White" Clicked="Button_Clicked"/>
+                <Button Text="Register" HorizontalOptions="CenterAndExpand" BackgroundColor="DarkOrange" TextColor="White" Clicked="Button_Clicked"/>
             </StackLayout>
         </StackLayout>
     </ContentPage.Content>

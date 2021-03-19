@@ -85,8 +85,8 @@ namespace eDentalClinicWebAPI.Services
             List<Database.Rating> ratings = new List<Database.Rating>();
             foreach (var item in list)
             {
-                ratings = _context.Ratings.Where(w => w.DentistID == item.DentistID).OrderBy(w => w.DentistID).ToList();
-                if(ratings.Count > 0)
+                ratings = _context.Ratings.Where(w => w.DentistID == item.DentistID).OrderBy(w => w.UserID).ToList();
+                if (ratings.Count > 0)
                 {
                     dentists.Add(item.DentistID, ratings);
                 }

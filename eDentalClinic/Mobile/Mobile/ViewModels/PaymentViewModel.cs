@@ -91,14 +91,13 @@ namespace Mobile.ViewModels
 
         public async Task Init()
         {
-            var client = await _userService.GetById<Client>(DentistTreatmentAppointment.UserID);
+            var client = await _userService.GetById<User>(DentistTreatmentAppointment.UserID);
             FirstName = client.FirstName;
             LastName = client.LastName;
             Phone = client.Phone;
             Email = client.Email;
 
             var dentist = await _dentistService.GetById<Dentist>(DentistTreatmentAppointment.DentistID);
-            // Dentist = dentist.Branch.Title + " " + dentist.FirstName + " " + dentist.LastName;
             Dentist = dentist.FirstName + " " + dentist.LastName;
 
             var treatment = await _treatmentService.GetById<Treatment>(DentistTreatmentAppointment.TreatmentID);
@@ -115,9 +114,7 @@ namespace Mobile.ViewModels
                     await Application.Current.MainPage.DisplayAlert("Error", "Credit card number field is required !", "OK");
                     return;
                 }
-                // var list = await _userService.GetAll<List<Client>>(new UserSearchRequest { Username = APIService.Username });
-                // var client = list[0];
-                var client = await _userService.GetById<Client>(DentistTreatmentAppointment.UserID);
+                var client = await _userService.GetById<User>(DentistTreatmentAppointment.UserID);
                 var dentist = await _dentistService.GetById<Dentist>(DentistTreatmentAppointment.DentistID);
                 var treatment = await _treatmentService.GetById<Treatment>(DentistTreatmentAppointment.TreatmentID);
 
@@ -129,13 +126,12 @@ namespace Mobile.ViewModels
                     StartDate = DentistTreatmentAppointment.StartDate,
                     EndDate = DentistTreatmentAppointment.StartDate.AddHours(DentistTreatmentAppointment.TimeRequired),
                     RatingStatus = false,
-                    //CommentStatus = false
                 };
                 var result = await _appointmentService.Insert<Appointment>(request);
 
                 if (result == null)
                 {
-                    await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment", "Try again");
+                    await Application.Current.MainPage.DisplayAlert("Error", "Appointment already booked! Please book another appointment", "OK");
                     return;
                 }
                 else
@@ -153,7 +149,7 @@ namespace Mobile.ViewModels
             }
             catch (Exception)
             {
-                await Application.Current.MainPage.DisplayAlert("Error", "Somethning went wrong", "Try again");
+                await Application.Current.MainPage.DisplayAlert("Error", "Somethning went wrong", "OK");
             }
         }
     }

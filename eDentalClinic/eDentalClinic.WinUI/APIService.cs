@@ -36,7 +36,7 @@ namespace eDentalClinic.WinUI
             {
                 if (ex.Call.HttpStatus == System.Net.HttpStatusCode.Unauthorized)
                 {
-                    MessageBox.Show("Niste authentificirani");
+                    MessageBox.Show("Invalid Username or Password","Authentication",MessageBoxButtons.OK,MessageBoxIcon.Error);
 
                 }
                 throw;
@@ -62,19 +62,6 @@ namespace eDentalClinic.WinUI
         {
             var url = $"{Properties.Settings.Default.APIUrl}/{_route}/{id}";
             return await url.WithBasicAuth(Username, Password).DeleteAsync().ReceiveJson<T>();
-        }
-
-        public async Task<T> Login<T>(object request)
-        {
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}";
-            return await url.WithBasicAuth(Username, Password).PostJsonAsync(request).ReceiveJson<T>();
-        }
-
-        public async Task<T> Register<T>(object request)
-        {
-            var url = $"{Properties.Settings.Default.APIUrl}/{_route}/register";
-
-            return await url.PostJsonAsync(request).ReceiveJson<T>();
-        }
+        }        
     }
 }
