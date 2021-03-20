@@ -31,5 +31,14 @@ namespace eDentalClinic.WinUI.Properties {
                 return ((string)(this["APIUrl"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:59399/api")]
+        public string APIUrlSaDocker {
+            get {
+                return ((string)(this["APIUrlSaDocker"]));
+            }
+        }
     }
 }

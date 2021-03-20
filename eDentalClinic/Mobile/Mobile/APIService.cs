@@ -15,6 +15,8 @@ namespace Mobile
         public static string Password { get; set; }
 
         private string _apiUrl = "http://localhost:62292/api";
+        //private string _apiUrl = "http://localhost:59399/api";
+
         public APIService(string route)
         {
             _route = route;
