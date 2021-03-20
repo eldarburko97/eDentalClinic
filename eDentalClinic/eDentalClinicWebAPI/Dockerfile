@@ -17,4 +17,5 @@ RUN dotnet publish "eDentalClinicWebAPI.csproj" -c Release -o /app
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
+ADD eDentalClinicWebAPI/Images Images/
 ENTRYPOINT ["dotnet", "eDentalClinicWebAPI.dll"]
